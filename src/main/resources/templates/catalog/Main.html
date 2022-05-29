@@ -1,0 +1,105 @@
+<div th:replace="/common/header"></div>
+
+
+<div id="Main">
+
+    <div id="Sidebar">
+        <div >
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">图书分类</a>
+                    <dl class="layui-nav-child">
+                        <dd><a th:href="@{/catalog/viewCategory(categoryId=FISH)}">天文</a></dd>
+                        <dd><a th:href="@{/catalog/viewCategory(categoryId=DOGS)}">儿童</a></dd>
+                        <dd><a th:href="@{/catalog/viewCategory(categoryId=CATS)}" >漫画</a></dd>
+                        <dd><a th:href="@{/catalog/viewCategory(categoryId=REPTILES)}">情感</a></dd>
+                        <dd><a th:href="@{/catalog/viewCategory(categoryId=BIRDS)}">教程</a></dd>
+<!--                        <dd><a href="">跳转</a></dd>-->
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="http://180.76.233.143:8080/chat">在线客服</a>
+<!--                    <dl class="layui-nav-child">-->
+<!--                        <dd><a href="">移动模块</a></dd>-->
+<!--                        <dd><a href="">后台模版</a></dd>-->
+<!--                        <dd><a href="">电商平台</a></dd>-->
+<!--                    </dl>-->
+                </li>
+<!--                <li class="layui-nav-item"><a href="">产品</a></li>-->
+<!--                <li class="layui-nav-item"><a href="">大数据</a></li>-->
+            </ul>
+<!--            <a th:href="@{/catalog/viewCategory(categoryId=FISH)}"><img src="/images/banner_fish.gif" /></a>-->
+<!--            <br/> Saltwater, Freshwater <br/>-->
+<!--            <a th:href="@{/catalog/viewCategory(categoryId=DOGS)}"><img src="/images/banner_dogs.gif" /></a>-->
+<!--            <br /> Various Breeds <br />-->
+<!--            <a th:href="@{/catalog/viewCategory(categoryId=CATS)}" ><img src="/images/banner_cats.gif" /></a>-->
+<!--            <br /> Various Breeds, Exotic Varieties <br />-->
+<!--            <a th:href="@{/catalog/viewCategory(categoryId=REPTILES)}"><img src="/images/banner_reptiles.gif" /></a>-->
+<!--            <br /> Lizards, Turtles, Snakes <br />-->
+<!--            <a th:href="@{/catalog/viewCategory(categoryId=BIRDS)}"><img src="/images/banner_birds.gif" /></a>-->
+<!--            <br /> Exotic Varieties-->
+        </div>
+    </div>
+
+
+<!--    <div id="tooltip" class="tip"></div>-->
+
+    <div id="tooltip"></div>
+
+    <!--    =============================================================================-->
+    <!--    方便测试用-->
+    <div id="fast_signin">
+        <a type="button" href="/account/fastSignin" th:if="${session.user}==null">Click here to fast signin</a>
+    </div>
+    <!--    =============================================================================-->
+
+
+    <div id="MainImage">
+        <div id="MainImageContent">
+<!--            <map name="estoremap">-->
+<!--                <area alt="Birds" id = "Birdspic" coords="72,2,280,250" th:href="@{/catalog/viewCategory(categoryId=BIRDS)}" shape="rect" />-->
+<!--                <area alt="Fish" id = "Fishpic" coords="2,180,72,250" th:href="@{/catalog/viewCategory(categoryId=FISH)}" shape="rect" />-->
+<!--                <area alt="Dogs" id = "Dogspic" coords="60,250,130,320" th:href="@{/catalog/viewCategory(categoryId=DOGS)}" shape="rect" />-->
+<!--                <area alt="Reptiles" id = "Reptilespic" coords="140,270,210,340" th:href="@{/catalog/viewCategory(categoryId=REPTILES)}" shape="rect" />-->
+<!--                <area alt="Cats" id = "Catspic" coords="225,240,295,310" th:href="@{/catalog/viewCategory(categoryId=CATS)}" shape="rect" />-->
+<!--                <area alt="Birds" id = "Birds2pic" coords="280,180,350,250" th:href="@{/catalog/viewCategory(categoryId=BIRDS)}" shape="rect" />-->
+<!--            </map>-->
+
+            <div class="layui-carousel" id="test1">
+
+                <div carousel-item>
+                    <div>
+                        <img height="355" src="/images/splash.png" align="middle" usemap="#estoremap" width="569" />
+                    </div>
+                    <div>
+                        <img height="355" src="/images/splash2.png" align="middle" usemap="#estoremap" width="569" />
+                    </div>
+                    <div>
+                        <img height="355" src="/images/splash3.png" align="middle" usemap="#estoremap" width="569" />
+                    </div>
+                </div>
+            </div>
+            <!-- 条目中可以是任意内容，如：<img src=""> -->
+
+            <script type = "text/javascript" src="/layui/layui.js"></script>
+            <script>
+                layui.use('carousel', function(){
+                    var carousel = layui.carousel;
+                    //建造实例
+                    carousel.render({
+                        elem: '#test1'
+                        ,width: '100%' //设置容器宽度
+                        ,arrow: 'always' //始终显示箭头
+                        //,anim: 'updown' //切换动画方式
+                    });
+                });
+            </script>
+
+
+        </div>
+    </div>
+    <div id="Separator">&nbsp;</div>
+</div>
+
+<div th:replace="/common/footer"></div>
